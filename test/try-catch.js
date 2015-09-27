@@ -1,32 +1,28 @@
 bench('Try-catch', function () {
+  this.timeout(6e4)
 
-  this.sampleRuns = 1e2;
-  this.minimumPasses = 1e3;
+  var a = 1
 
-  var a = 1;
-
-  function multiply() {
-    a *= 2;
+  function multiply () {
+    a *= 2
   }
 
   it('omitted', function () {
-    multiply();
-  });
+    multiply()
+  })
 
   it('inside a method', function () {
     try {
-      multiply();
+      multiply()
+    } catch (e) {
     }
-    catch (e) {
-    }
-  });
+  })
 
   try {
     it('outside a method', function () {
-      multiply();
-    });
-  }
-  catch (e) {
+      multiply()
+    })
+  } catch (e) {
   }
 
-});
+})
